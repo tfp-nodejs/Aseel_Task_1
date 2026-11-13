@@ -1,7 +1,7 @@
 async function getposts() {
   try {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/posts/1",
+      "https://jsonplaceholder.typicode.com/posts",
     );
   
     if (!response.ok) {
