@@ -1,3 +1,4 @@
+const {customFilter} = require("./utils");
 async function getposts() {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -6,7 +7,7 @@ async function getposts() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    const filteredPosts = data.filter((post) => post.title.length < 25);
+    const filteredPosts = customFilter(data, (post) => post.title.length < 25);
 
     console.log("Filtered Posts:", filteredPosts);
   } catch (error) {
